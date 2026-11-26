@@ -20,6 +20,7 @@ public class SatchelScreen extends AbstractContainerScreen<SatchelMenu> {
         label=new EditBox(font,leftPos+8,topPos+171,112,16,Component.literal("Nameplate"));
         label.setMaxLength(24);
         if(minecraft.level.getBlockEntity(menu.pos) instanceof LeatherSatchelBlockEntity s) label.setValue(s.getLabel());
+        label.setFilter(value -> font.width(value) <= Math.max(font.width("Building Blocks"), font.width(label.getValue())));
         addRenderableWidget(label);
         addRenderableWidget(new Button(leftPos+124,topPos+170,44,18,Component.literal("Save"),b->save()));
     }
