@@ -51,6 +51,24 @@ public class LeatherSatchelBlock extends BaseEntityBlock {
     }
 
     @Override
+    public <T extends BlockEntity> net.minecraft.world.level.block.entity.BlockEntityTicker<T> getTicker(Level level, BlockState state, net.minecraft.world.level.block.entity.BlockEntityType<T> type) {
+        return level.isClientSide ? createTickerHelper(type, MinecraftChests.LEATHER_SATCHEL_ENTITY.get(), LeatherSatchelBlockEntity::clientTick) : null;
+    }
+
+    @Override
+    public void tick(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, net.minecraft.util.RandomSource random) {
+        if (level.getBlockEntity(pos) instanceof LeatherSatchelBlockEntity satchel) satchel.recheckOpen();
+    }
+
+    @Override
+    public net.minecraft.world.phys.shapes.VoxelShape getShape(BlockState state, net.minecraft.world.level.BlockGetter level, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
+        return switch (state.getValue(FACING)) {
+            case EAST, WEST -> Block.box(0, 0, 0.9, 16, 15, 15.1);
+            default -> Block.box(0.9, 0, 0, 15.1, 15, 16);
+        };
+    }
+
+    @Override
     public RenderShape getRenderShape(BlockState state) {
         return RenderShape.ENTITYBLOCK_ANIMATED;
     }
