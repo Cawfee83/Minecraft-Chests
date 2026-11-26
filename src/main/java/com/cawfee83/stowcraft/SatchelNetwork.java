@@ -13,7 +13,7 @@ public class SatchelNetwork {
         var ctx=supplier.get();
         ctx.enqueueWork(()->{
             var player=ctx.getSender();
-            if(player!=null && player.containerMenu instanceof SatchelMenu menu && menu.containerId==msg.id() && menu.stillValid(player) && menu.getContainer() instanceof LeatherSatchelBlockEntity satchel) {
+            if(player!=null && player.containerMenu instanceof SatchelMenu menu && menu.containerId==msg.id() && menu.stillValid(player) && menu.getContainer() instanceof StowcraftContainerBlockEntity satchel) {
                 satchel.setLabel(net.minecraft.SharedConstants.filterText(msg.label()).trim());
             }
         });
