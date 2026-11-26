@@ -37,6 +37,11 @@ public class Stowcraft {
     public static final RegistryObject<net.minecraft.sounds.SoundEvent> SATCHEL_CLOSE =
             SOUNDS.register("satchel_close", () -> new net.minecraft.sounds.SoundEvent(new net.minecraft.resources.ResourceLocation(MODID, "satchel_close")));
 
+    public static final RegistryObject<net.minecraft.sounds.SoundEvent> COFFER_OPEN =
+            SOUNDS.register("coffer_open", () -> new net.minecraft.sounds.SoundEvent(new net.minecraft.resources.ResourceLocation(MODID, "coffer_open")));
+    public static final RegistryObject<net.minecraft.sounds.SoundEvent> COFFER_CLOSE =
+            SOUNDS.register("coffer_close", () -> new net.minecraft.sounds.SoundEvent(new net.minecraft.resources.ResourceLocation(MODID, "coffer_close")));
+
     public static final RegistryObject<Block> LEATHER_SATCHEL =
             BLOCKS.register("leather_satchel",
                     () -> new LeatherSatchelBlock(
