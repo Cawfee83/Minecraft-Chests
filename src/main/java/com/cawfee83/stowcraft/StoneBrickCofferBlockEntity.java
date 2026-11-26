@@ -11,6 +11,7 @@ public class StoneBrickCofferBlockEntity extends StowcraftContainerBlockEntity {
     @Override protected Component getDefaultName() {
         return Component.translatable("container.stowcraft.stone_brick_coffer");
     }
-    @Override protected SoundEvent openingSound() { return net.minecraft.sounds.SoundEvents.STONE_BREAK; }
-    @Override protected SoundEvent closingSound() { return net.minecraft.sounds.SoundEvents.STONE_PLACE; }
+    @Override protected float soundVolume() { return 0.2F; }
+    @Override protected SoundEvent openingSound() { return Stowcraft.COFFER_OPEN.get(); }
+    @Override protected SoundEvent closingSound() { return Stowcraft.COFFER_CLOSE.get(); }
 }
