@@ -71,6 +71,9 @@ public class MinecraftChests {
                             LEATHER_SATCHEL.get()
                     ).build(null));
 
+    public static final DeferredRegister<net.minecraft.world.inventory.MenuType<?>> MENUS = DeferredRegister.create(ForgeRegistries.MENU_TYPES, MODID);
+    public static final RegistryObject<net.minecraft.world.inventory.MenuType<SatchelMenu>> SATCHEL_MENU = MENUS.register("satchel", () -> net.minecraftforge.common.extensions.IForgeMenuType.create(SatchelMenu::new));
+
     public MinecraftChests(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
@@ -78,5 +81,7 @@ public class MinecraftChests {
         ITEMS.register(modEventBus);
         BLOCK_ENTITIES.register(modEventBus);
         SOUNDS.register(modEventBus);
+        MENUS.register(modEventBus);
+        SatchelNetwork.init();
     }
 }
