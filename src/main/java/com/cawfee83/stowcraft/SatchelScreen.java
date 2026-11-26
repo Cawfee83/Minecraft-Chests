@@ -19,7 +19,7 @@ public class SatchelScreen extends AbstractContainerScreen<SatchelMenu> {
         super.init();
         label=new EditBox(font,leftPos+8,topPos+171,112,16,Component.literal("Nameplate"));
         label.setMaxLength(24);
-        if(minecraft.level.getBlockEntity(menu.pos) instanceof LeatherSatchelBlockEntity s) label.setValue(s.getLabel());
+        if(minecraft.level.getBlockEntity(menu.pos) instanceof StowcraftContainerBlockEntity s) label.setValue(s.getLabel());
         label.setFilter(value -> font.width(value) <= Math.max(font.width("Building Blocks"), font.width(label.getValue())));
         addRenderableWidget(label);
         addRenderableWidget(new Button(leftPos+124,topPos+170,44,18,Component.literal("Save"),b->save()));
@@ -48,7 +48,7 @@ public class SatchelScreen extends AbstractContainerScreen<SatchelMenu> {
     @Override public boolean charTyped(char c,int mods){return label.isFocused()?label.charTyped(c,mods):super.charTyped(c,mods);}
     @Override protected void renderLabels(PoseStack p,int x,int y){
         String name=title.getString();
-        if(minecraft.level.getBlockEntity(menu.pos) instanceof LeatherSatchelBlockEntity s && !s.getLabel().isEmpty()) name=s.getLabel();
+        if(minecraft.level.getBlockEntity(menu.pos) instanceof StowcraftContainerBlockEntity s && !s.getLabel().isEmpty()) name=s.getLabel();
         font.draw(p,name,8,6,0x404040);
         font.draw(p,playerInventoryTitle,8,inventoryLabelY,0x404040);
     }
