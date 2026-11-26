@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
-    "stowcraft:leather_satchel"
+    "stowcraft:leather_satchel",
+    "stowcraft:oak_log_chest",
+    "stowcraft:spruce_log_chest",
+    "stowcraft:birch_log_chest",
+    "stowcraft:jungle_log_chest",
+    "stowcraft:acacia_log_chest",
+    "stowcraft:dark_oak_log_chest"
   ]
 }
