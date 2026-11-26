@@ -2,5 +2,11 @@
   "block.stowcraft.leather_satchel": "Leather Satchel",
   "container.stowcraft.leather_satchel": "Leather Satchel",
   "block.stowcraft.stone_brick_coffer": "Stone Brick Coffer",
-  "container.stowcraft.stone_brick_coffer": "Stone Brick Coffer"
+  "container.stowcraft.stone_brick_coffer": "Stone Brick Coffer",
+  "block.stowcraft.oak_log_chest": "Oak Log Chest",
+  "block.stowcraft.spruce_log_chest": "Spruce Log Chest",
+  "block.stowcraft.birch_log_chest": "Birch Log Chest",
+  "block.stowcraft.jungle_log_chest": "Jungle Log Chest",
+  "block.stowcraft.acacia_log_chest": "Acacia Log Chest",
+  "block.stowcraft.dark_oak_log_chest": "Dark Oak Log Chest"
 }
