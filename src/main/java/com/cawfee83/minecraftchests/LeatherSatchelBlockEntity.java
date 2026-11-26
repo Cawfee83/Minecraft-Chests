@@ -90,12 +90,33 @@ public class LeatherSatchelBlockEntity
     @Override
     protected AbstractContainerMenu createMenu(
             int id, Inventory inventory) {
-        return ChestMenu.threeRows(id, inventory, this);
+        return new SatchelMenu(id, inventory, this, worldPosition);
+    }
+
+    private String label = "";
+    public String getLabel() { return label; }
+    public void setLabel(String value) {
+        label = value;
+        setChanged();
+        if (level != null && !level.isClientSide) level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
+    }
+    @Override public CompoundTag getUpdateTag() {
+        CompoundTag tag = new CompoundTag();
+        tag.putString("SatchelLabel", label);
+        return tag;
+    }
+    @Override public void handleUpdateTag(CompoundTag tag) { label = tag.getString("SatchelLabel"); }
+    @Override public net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket getUpdatePacket() {
+        return net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket.create(this);
+    }
+    @Override public void onDataPacket(net.minecraft.network.Connection connection, net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket packet) {
+        if (packet.getTag() != null) handleUpdateTag(packet.getTag());
     }
 
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
+        label = tag.getString("SatchelLabel");
 
         items = NonNullList.withSize(27, ItemStack.EMPTY);
 
@@ -107,6 +128,7 @@ public class LeatherSatchelBlockEntity
     @Override
     protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
+        tag.putString("SatchelLabel", label);
 
         if (!trySaveLootTable(tag)) {
             ContainerHelper.saveAllItems(tag, items);
