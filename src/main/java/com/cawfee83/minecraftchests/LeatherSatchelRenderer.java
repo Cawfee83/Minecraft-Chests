@@ -48,7 +48,8 @@ public class LeatherSatchelRenderer
 
         poseStack.scale(-1.0F, -1.0F, 1.0F);
 
-        model.setLidAngle(0.0F);
+        float openness = satchel.getOpenNess(partialTick);
+        model.setLidAngle(1.0F - (float)Math.pow(1.0F - openness, 3));
 
         model.render(
                 poseStack,
