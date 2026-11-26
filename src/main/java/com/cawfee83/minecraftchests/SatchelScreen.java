@@ -13,7 +13,7 @@ public class SatchelScreen extends AbstractContainerScreen<SatchelMenu> {
     public SatchelScreen(SatchelMenu menu, Inventory inv, Component title) {
         super(menu,inv,title);
         imageHeight=190;
-        inventoryLabelY=96;
+        inventoryLabelY=72;
     }
     @Override protected void init(){
         super.init();
@@ -27,8 +27,12 @@ public class SatchelScreen extends AbstractContainerScreen<SatchelMenu> {
     @Override protected void renderBg(PoseStack p,float partial,int x,int y){
         RenderSystem.setShaderTexture(0,BG);
         blit(p,leftPos,topPos,0,0,176,71);
-        blit(p,leftPos,topPos+71,0,126,176,95);
-        fill(p,leftPos,topPos+166,leftPos+176,topPos+190,0xffc6c6c6);
+        blit(p,leftPos,topPos+71,0,126,176,88);
+        fill(p,leftPos,topPos+159,leftPos+176,topPos+190,0xff000000);
+        fill(p,leftPos+1,topPos+159,leftPos+175,topPos+189,0xff555555);
+        fill(p,leftPos+2,topPos+159,leftPos+174,topPos+187,0xffc6c6c6);
+        fill(p,leftPos+1,topPos+159,leftPos+3,topPos+187,0xffffffff);
+        fill(p,leftPos+3,topPos+187,leftPos+173,topPos+189,0xff555555);
     }
     @Override public void render(PoseStack p,int x,int y,float partial){
         renderBackground(p);super.render(p,x,y,partial);renderTooltip(p,x,y);
