@@ -17,4 +17,11 @@ public class StoneBrickCofferBlock extends StowcraftContainerBlock {
     @Override public net.minecraft.world.phys.shapes.VoxelShape getShape(BlockState state, net.minecraft.world.level.BlockGetter level, BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext context) {
         return Block.box(0.5, 0, 0.5, 15.5, 15, 15.5);
     }
+    @Override
+    public float getDestroyProgress(BlockState state, net.minecraft.world.entity.player.Player player, net.minecraft.world.level.BlockGetter level, BlockPos pos) {
+        if (!player.isCreative() && !player.hasCorrectToolForDrops(state)) {
+            return 0.0F;
+        }
+        return super.getDestroyProgress(state, player, level, pos);
+    }
 }
