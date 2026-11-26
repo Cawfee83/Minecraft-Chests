@@ -12,27 +12,27 @@ public class SatchelScreen extends AbstractContainerScreen<SatchelMenu> {
     private EditBox label;
     public SatchelScreen(SatchelMenu menu, Inventory inv, Component title) {
         super(menu,inv,title);
-        imageHeight=190;
+        imageHeight=195;
         inventoryLabelY=72;
     }
     @Override protected void init(){
         super.init();
-        label=new EditBox(font,leftPos+8,topPos+166,112,16,Component.literal("Nameplate"));
+        label=new EditBox(font,leftPos+8,topPos+171,112,16,Component.literal("Nameplate"));
         label.setMaxLength(24);
         if(minecraft.level.getBlockEntity(menu.pos) instanceof LeatherSatchelBlockEntity s) label.setValue(s.getLabel());
         addRenderableWidget(label);
-        addRenderableWidget(new Button(leftPos+124,topPos+165,44,18,Component.literal("Save"),b->save()));
+        addRenderableWidget(new Button(leftPos+124,topPos+170,44,18,Component.literal("Save"),b->save()));
     }
     private void save(){SatchelNetwork.CHANNEL.sendToServer(new SatchelNetwork.Rename(menu.containerId,label.getValue()));}
     @Override protected void renderBg(PoseStack p,float partial,int x,int y){
         RenderSystem.setShaderTexture(0,BG);
         blit(p,leftPos,topPos,0,0,176,71);
-        blit(p,leftPos,topPos+71,0,126,176,88);
-        fill(p,leftPos,topPos+159,leftPos+176,topPos+190,0xff000000);
-        fill(p,leftPos+1,topPos+159,leftPos+175,topPos+189,0xff555555);
-        fill(p,leftPos+2,topPos+159,leftPos+174,topPos+187,0xffc6c6c6);
-        fill(p,leftPos+1,topPos+159,leftPos+3,topPos+187,0xffffffff);
-        fill(p,leftPos+3,topPos+187,leftPos+173,topPos+189,0xff555555);
+        blit(p,leftPos,topPos+71,0,126,176,95);
+        fill(p,leftPos,topPos+166,leftPos+176,topPos+195,0xff000000);
+        fill(p,leftPos+1,topPos+166,leftPos+175,topPos+194,0xff555555);
+        fill(p,leftPos+2,topPos+166,leftPos+174,topPos+192,0xffc6c6c6);
+        fill(p,leftPos+1,topPos+166,leftPos+3,topPos+192,0xffffffff);
+        fill(p,leftPos+3,topPos+192,leftPos+173,topPos+194,0xff555555);
     }
     @Override public void render(PoseStack p,int x,int y,float partial){
         renderBackground(p);super.render(p,x,y,partial);renderTooltip(p,x,y);
