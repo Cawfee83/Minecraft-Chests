@@ -18,10 +18,10 @@ public abstract class StowcraftContainerBlockEntity
     private final net.minecraft.world.level.block.entity.ChestLidController lid = new net.minecraft.world.level.block.entity.ChestLidController();
     private final net.minecraft.world.level.block.entity.ContainerOpenersCounter openers = new net.minecraft.world.level.block.entity.ContainerOpenersCounter() {
         protected void onOpen(net.minecraft.world.level.Level level, BlockPos pos, BlockState state) {
-            level.playSound(null, pos, openingSound(), net.minecraft.sounds.SoundSource.BLOCKS, 0.3F, 0.95F + level.random.nextFloat() * 0.1F);
+            level.playSound(null, pos, openingSound(), net.minecraft.sounds.SoundSource.BLOCKS, soundVolume(), 0.95F + level.random.nextFloat() * 0.1F);
         }
         protected void onClose(net.minecraft.world.level.Level level, BlockPos pos, BlockState state) {
-            level.playSound(null, pos, closingSound(), net.minecraft.sounds.SoundSource.BLOCKS, 0.3F, 0.95F + level.random.nextFloat() * 0.1F);
+            level.playSound(null, pos, closingSound(), net.minecraft.sounds.SoundSource.BLOCKS, soundVolume(), 0.95F + level.random.nextFloat() * 0.1F);
         }
         protected void openerCountChanged(net.minecraft.world.level.Level level, BlockPos pos, BlockState state, int oldCount, int newCount) {
             level.blockEvent(pos, state.getBlock(), 1, newCount);
@@ -66,6 +66,7 @@ public abstract class StowcraftContainerBlockEntity
         super(type, pos, state);
     }
 
+    protected float soundVolume() { return 0.3F; }
     protected abstract net.minecraft.sounds.SoundEvent openingSound();
     protected abstract net.minecraft.sounds.SoundEvent closingSound();
 
