@@ -29,6 +29,14 @@ public class MinecraftChests {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, MODID);
 
+    public static final DeferredRegister<net.minecraft.sounds.SoundEvent> SOUNDS =
+            DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, MODID);
+
+    public static final RegistryObject<net.minecraft.sounds.SoundEvent> SATCHEL_OPEN =
+            SOUNDS.register("satchel_open", () -> new net.minecraft.sounds.SoundEvent(new net.minecraft.resources.ResourceLocation(MODID, "satchel_open")));
+    public static final RegistryObject<net.minecraft.sounds.SoundEvent> SATCHEL_CLOSE =
+            SOUNDS.register("satchel_close", () -> new net.minecraft.sounds.SoundEvent(new net.minecraft.resources.ResourceLocation(MODID, "satchel_close")));
+
     public static final RegistryObject<Block> LEATHER_SATCHEL =
             BLOCKS.register("leather_satchel",
                     () -> new LeatherSatchelBlock(
@@ -69,5 +77,6 @@ public class MinecraftChests {
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
         BLOCK_ENTITIES.register(modEventBus);
+        SOUNDS.register(modEventBus);
     }
 }
