@@ -8,5 +8,15 @@
     "sounds": [
       "stowcraft:satchel_close"
     ]
+  },
+  "coffer_open": {
+    "sounds": [
+      "stowcraft:coffer_open"
+    ]
+  },
+  "coffer_close": {
+    "sounds": [
+      "stowcraft:coffer_close"
+    ]
   }
 }
