@@ -41,7 +41,19 @@ public class MinecraftChests {
                     () -> new BlockItem(
                             LEATHER_SATCHEL.get(),
                             new Item.Properties()
-                                    .tab(CreativeModeTab.TAB_DECORATIONS)));
+                                    .tab(CreativeModeTab.TAB_DECORATIONS)) {
+                        @Override
+                        public void initializeClient(java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientItemExtensions> consumer) {
+                            consumer.accept(new net.minecraftforge.client.extensions.common.IClientItemExtensions() {
+                                private net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer renderer;
+                                @Override
+                                public net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                                    if (renderer == null) renderer = new LeatherSatchelItemRenderer();
+                                    return renderer;
+                                }
+                            });
+                        }
+                    });
 
     public static final RegistryObject<BlockEntityType<LeatherSatchelBlockEntity>>
             LEATHER_SATCHEL_ENTITY =
