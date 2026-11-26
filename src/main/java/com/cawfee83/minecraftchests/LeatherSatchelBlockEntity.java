@@ -18,10 +18,10 @@ public class LeatherSatchelBlockEntity
     private final net.minecraft.world.level.block.entity.ChestLidController lid = new net.minecraft.world.level.block.entity.ChestLidController();
     private final net.minecraft.world.level.block.entity.ContainerOpenersCounter openers = new net.minecraft.world.level.block.entity.ContainerOpenersCounter() {
         protected void onOpen(net.minecraft.world.level.Level level, BlockPos pos, BlockState state) {
-            level.playSound(null, pos, net.minecraft.sounds.SoundEvents.CHEST_OPEN, net.minecraft.sounds.SoundSource.BLOCKS, 0.5F, 1.0F);
+            level.playSound(null, pos, MinecraftChests.SATCHEL_OPEN.get(), net.minecraft.sounds.SoundSource.BLOCKS, 0.3F, 0.95F + level.random.nextFloat() * 0.1F);
         }
         protected void onClose(net.minecraft.world.level.Level level, BlockPos pos, BlockState state) {
-            level.playSound(null, pos, net.minecraft.sounds.SoundEvents.CHEST_CLOSE, net.minecraft.sounds.SoundSource.BLOCKS, 0.5F, 1.0F);
+            level.playSound(null, pos, MinecraftChests.SATCHEL_CLOSE.get(), net.minecraft.sounds.SoundSource.BLOCKS, 0.3F, 0.95F + level.random.nextFloat() * 0.1F);
         }
         protected void openerCountChanged(net.minecraft.world.level.Level level, BlockPos pos, BlockState state, int oldCount, int newCount) {
             level.blockEvent(pos, state.getBlock(), 1, newCount);
