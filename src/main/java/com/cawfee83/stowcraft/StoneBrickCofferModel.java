@@ -38,7 +38,16 @@ public class StoneBrickCofferModel {
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
 
-    public void setLidAngle(float openness) { lid.yRot = -openness * (float)(Math.PI / 2); }
+    public void setLidAngle(float openness) {
+        float angle = -openness * (float)(Math.PI / 2);
+        lid.yRot = angle;
+        // Move the slab's center diagonally instead of anchoring it to a hinge.
+        // The exported lid center is (6, -6) relative to its pivot.
+        float cos = (float)Math.cos(angle);
+        float sin = (float)Math.sin(angle);
+        lid.x = -6.0F + 6.0F - 6.0F * cos + 6.0F * sin - 4.0F * openness;
+        lid.z = 6.0F - 6.0F + 6.0F * sin + 6.0F * cos + 6.0F * openness;
+    }
     public void render(PoseStack pose, VertexConsumer consumer, int light, int overlay) {
         base.render(pose, consumer, light, overlay);
         lid.render(pose, consumer, light, overlay);
