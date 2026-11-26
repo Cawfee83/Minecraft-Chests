@@ -13,6 +13,11 @@ import net.minecraftforge.fml.common.Mod;
 public class ClientModEvents {
 
     @SubscribeEvent
+    public static void setup(net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent event) {
+        event.enqueueWork(() -> net.minecraft.client.gui.screens.MenuScreens.register(MinecraftChests.SATCHEL_MENU.get(), SatchelScreen::new));
+    }
+
+    @SubscribeEvent
     public static void registerRenderers(
             EntityRenderersEvent.RegisterRenderers event) {
 
