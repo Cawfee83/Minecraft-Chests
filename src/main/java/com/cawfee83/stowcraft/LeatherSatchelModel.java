@@ -1,5 +1,5 @@
 
-package com.cawfee83.minecraftchests;
+package com.cawfee83.stowcraft;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -14,7 +14,7 @@ public class LeatherSatchelModel {
 	public static final ModelLayerLocation LAYER_LOCATION =
 			new ModelLayerLocation(
 					new ResourceLocation(
-							MinecraftChests.MODID, "leather_satchel"),
+							Stowcraft.MODID, "leather_satchel"),
 					"main");
 
 	private final ModelPart lid;

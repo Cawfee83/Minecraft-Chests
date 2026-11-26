@@ -1,4 +1,4 @@
-package com.cawfee83.minecraftchests;
+package com.cawfee83.stowcraft;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -18,10 +18,10 @@ public class LeatherSatchelBlockEntity
     private final net.minecraft.world.level.block.entity.ChestLidController lid = new net.minecraft.world.level.block.entity.ChestLidController();
     private final net.minecraft.world.level.block.entity.ContainerOpenersCounter openers = new net.minecraft.world.level.block.entity.ContainerOpenersCounter() {
         protected void onOpen(net.minecraft.world.level.Level level, BlockPos pos, BlockState state) {
-            level.playSound(null, pos, MinecraftChests.SATCHEL_OPEN.get(), net.minecraft.sounds.SoundSource.BLOCKS, 0.3F, 0.95F + level.random.nextFloat() * 0.1F);
+            level.playSound(null, pos, Stowcraft.SATCHEL_OPEN.get(), net.minecraft.sounds.SoundSource.BLOCKS, 0.3F, 0.95F + level.random.nextFloat() * 0.1F);
         }
         protected void onClose(net.minecraft.world.level.Level level, BlockPos pos, BlockState state) {
-            level.playSound(null, pos, MinecraftChests.SATCHEL_CLOSE.get(), net.minecraft.sounds.SoundSource.BLOCKS, 0.3F, 0.95F + level.random.nextFloat() * 0.1F);
+            level.playSound(null, pos, Stowcraft.SATCHEL_CLOSE.get(), net.minecraft.sounds.SoundSource.BLOCKS, 0.3F, 0.95F + level.random.nextFloat() * 0.1F);
         }
         protected void openerCountChanged(net.minecraft.world.level.Level level, BlockPos pos, BlockState state, int oldCount, int newCount) {
             level.blockEvent(pos, state.getBlock(), 1, newCount);
@@ -63,7 +63,7 @@ public class LeatherSatchelBlockEntity
             NonNullList.withSize(27, ItemStack.EMPTY);
 
     public LeatherSatchelBlockEntity(BlockPos pos, BlockState state) {
-        super(MinecraftChests.LEATHER_SATCHEL_ENTITY.get(), pos, state);
+        super(Stowcraft.LEATHER_SATCHEL_ENTITY.get(), pos, state);
     }
 
     @Override
@@ -74,7 +74,7 @@ public class LeatherSatchelBlockEntity
     @Override
     protected Component getDefaultName() {
         return Component.translatable(
-                "container.minecraftchests.leather_satchel");
+                "container.stowcraft.leather_satchel");
     }
 
     @Override

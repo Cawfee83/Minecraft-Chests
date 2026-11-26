@@ -1,5 +1,5 @@
 
-package com.cawfee83.minecraftchests;
+package com.cawfee83.stowcraft;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -52,7 +52,7 @@ public class LeatherSatchelBlock extends BaseEntityBlock {
 
     @Override
     public <T extends BlockEntity> net.minecraft.world.level.block.entity.BlockEntityTicker<T> getTicker(Level level, BlockState state, net.minecraft.world.level.block.entity.BlockEntityType<T> type) {
-        return level.isClientSide ? createTickerHelper(type, MinecraftChests.LEATHER_SATCHEL_ENTITY.get(), LeatherSatchelBlockEntity::clientTick) : null;
+        return level.isClientSide ? createTickerHelper(type, Stowcraft.LEATHER_SATCHEL_ENTITY.get(), LeatherSatchelBlockEntity::clientTick) : null;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.cawfee83.minecraftchests;
+package com.cawfee83.stowcraft;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
@@ -15,7 +15,7 @@ public class LeatherSatchelItemRenderer extends BlockEntityWithoutLevelRenderer 
 
     @Override
     public void renderByItem(ItemStack stack, ItemTransforms.TransformType transform, PoseStack pose, MultiBufferSource buffer, int light, int overlay) {
-        LeatherSatchelBlockEntity entity = new LeatherSatchelBlockEntity(BlockPos.ZERO, MinecraftChests.LEATHER_SATCHEL.get().defaultBlockState());
+        LeatherSatchelBlockEntity entity = new LeatherSatchelBlockEntity(BlockPos.ZERO, Stowcraft.LEATHER_SATCHEL.get().defaultBlockState());
         Minecraft.getInstance().getBlockEntityRenderDispatcher().renderItem(entity, pose, buffer, light, overlay);
     }
 }

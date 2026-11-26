@@ -1,4 +1,4 @@
-package com.cawfee83.minecraftchests;
+package com.cawfee83.stowcraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Button;

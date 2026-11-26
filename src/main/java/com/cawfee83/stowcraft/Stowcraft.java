@@ -1,5 +1,5 @@
 
-package com.cawfee83.minecraftchests;
+package com.cawfee83.stowcraft;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -15,10 +15,10 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-@Mod(MinecraftChests.MODID)
-public class MinecraftChests {
+@Mod(Stowcraft.MODID)
+public class Stowcraft {
 
-    public static final String MODID = "minecraftchests";
+    public static final String MODID = "stowcraft";
 
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
@@ -74,7 +74,7 @@ public class MinecraftChests {
     public static final DeferredRegister<net.minecraft.world.inventory.MenuType<?>> MENUS = DeferredRegister.create(ForgeRegistries.MENU_TYPES, MODID);
     public static final RegistryObject<net.minecraft.world.inventory.MenuType<SatchelMenu>> SATCHEL_MENU = MENUS.register("satchel", () -> net.minecraftforge.common.extensions.IForgeMenuType.create(SatchelMenu::new));
 
-    public MinecraftChests(FMLJavaModLoadingContext context) {
+    public Stowcraft(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
         BLOCKS.register(modEventBus);

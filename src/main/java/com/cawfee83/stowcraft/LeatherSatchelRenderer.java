@@ -1,5 +1,5 @@
 
-package com.cawfee83.minecraftchests;
+package com.cawfee83.stowcraft;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
@@ -15,7 +15,7 @@ public class LeatherSatchelRenderer
 
     private static final ResourceLocation TEXTURE =
             new ResourceLocation(
-                    MinecraftChests.MODID,
+                    Stowcraft.MODID,
                     "textures/block/leather_satchel.png");
 
     private final LeatherSatchelModel model;

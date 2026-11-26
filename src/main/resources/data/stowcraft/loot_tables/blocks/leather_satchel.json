@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraftchests:leather_satchel"
+          "name": "stowcraft:leather_satchel"
         }
       ],
       "conditions": [

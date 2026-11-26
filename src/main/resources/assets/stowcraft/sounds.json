@@ -1,12 +1,12 @@
 {
   "satchel_open": {
     "sounds": [
-      "minecraftchests:satchel_open"
+      "stowcraft:satchel_open"
     ]
   },
   "satchel_close": {
     "sounds": [
-      "minecraftchests:satchel_close"
+      "stowcraft:satchel_close"
     ]
   }
 }
