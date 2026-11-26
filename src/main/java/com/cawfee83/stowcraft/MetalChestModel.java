@@ -56,6 +56,6 @@ public class MetalChestModel {
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
  private static float smooth(float x){x=Math.max(0,Math.min(1,x));return x*x*(3-2*x);}
- public void setOpenness(float openness){handle.zRot=(float)Math.PI/2*(1-smooth(openness/0.2857143F));door.yRot=-(float)Math.PI*2/3*smooth((openness-0.2857143F)/0.7142857F);}
+ public void setOpenness(float openness){handle.zRot=(float)Math.PI/2*(1-smooth(openness/0.2857143F));door.yRot=(float)Math.PI*2/3*smooth((openness-0.2857143F)/0.7142857F);}
  public void render(PoseStack pose, VertexConsumer consumer,int light,int overlay){base.render(pose,consumer,light,overlay);door.render(pose,consumer,light,overlay);}
 }
