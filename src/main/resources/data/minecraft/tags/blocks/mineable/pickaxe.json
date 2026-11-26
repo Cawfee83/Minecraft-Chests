@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "stowcraft:stone_brick_coffer"
+    "stowcraft:stone_brick_coffer",
+    "stowcraft:iron_chest",
+    "stowcraft:copper_chest",
+    "stowcraft:gold_chest"
   ]
 }

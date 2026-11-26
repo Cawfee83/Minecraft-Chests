@@ -134,6 +134,30 @@ public class Stowcraft {
         BLOCK_ENTITIES.register("log_chest", () -> BlockEntityType.Builder.of(LogChestBlockEntity::new,
             LOG_CHESTS.stream().map(RegistryObject::get).toArray(Block[]::new)).build(null));
 
+    public static final java.util.List<RegistryObject<Block>> METAL_CHESTS = new java.util.ArrayList<>();
+    static {
+        for (String wood : new String[]{"iron","copper","gold"}) {
+            String name = wood + "_chest";
+            RegistryObject<Block> block = BLOCKS.register(name, () -> new MetalChestBlock(
+                BlockBehaviour.Properties.of(Material.METAL).strength(5.0F, 6.0F).requiresCorrectToolForDrops().sound(net.minecraft.world.level.block.SoundType.METAL).noOcclusion()));
+            METAL_CHESTS.add(block);
+            ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)) {
+                @Override public void initializeClient(java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientItemExtensions> consumer) {
+                    consumer.accept(new net.minecraftforge.client.extensions.common.IClientItemExtensions() {
+                        private net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer renderer;
+                        @Override public net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                            if (renderer == null) renderer = new MetalChestItemRenderer();
+                            return renderer;
+                        }
+                    });
+                }
+            });
+        }
+    }
+    public static final RegistryObject<BlockEntityType<MetalChestBlockEntity>> METAL_CHEST_ENTITY =
+        BLOCK_ENTITIES.register("metal_chest", () -> BlockEntityType.Builder.of(MetalChestBlockEntity::new,
+            METAL_CHESTS.stream().map(RegistryObject::get).toArray(Block[]::new)).build(null));
+
     public static final DeferredRegister<net.minecraft.world.inventory.MenuType<?>> MENUS = DeferredRegister.create(ForgeRegistries.MENU_TYPES, MODID);
     public static final RegistryObject<net.minecraft.world.inventory.MenuType<SatchelMenu>> SATCHEL_MENU = MENUS.register("satchel", () -> net.minecraftforge.common.extensions.IForgeMenuType.create(SatchelMenu::new));
 

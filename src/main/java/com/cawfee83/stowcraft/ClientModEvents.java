@@ -26,6 +26,7 @@ public class ClientModEvents {
                 LeatherSatchelRenderer::new);
         event.registerBlockEntityRenderer(Stowcraft.STONE_BRICK_COFFER_ENTITY.get(), StoneBrickCofferRenderer::new);
         event.registerBlockEntityRenderer(Stowcraft.LOG_CHEST_ENTITY.get(), LogChestRenderer::new);
+        event.registerBlockEntityRenderer(Stowcraft.METAL_CHEST_ENTITY.get(), MetalChestRenderer::new);
     }
 
     @SubscribeEvent
@@ -37,5 +38,6 @@ public class ClientModEvents {
                 LeatherSatchelModel::createBodyLayer);
         event.registerLayerDefinition(StoneBrickCofferModel.LAYER_LOCATION, StoneBrickCofferModel::createBodyLayer);
         event.registerLayerDefinition(LogChestModel.LAYER_LOCATION, LogChestModel::createBodyLayer);
+        event.registerLayerDefinition(MetalChestModel.LAYER_LOCATION, MetalChestModel::createBodyLayer);
     }
 }
