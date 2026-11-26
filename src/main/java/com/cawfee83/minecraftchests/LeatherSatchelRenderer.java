@@ -57,6 +57,17 @@ public class LeatherSatchelRenderer
                 packedLight,
                 packedOverlay);
 
+        String label = satchel.getLabel();
+        if (!label.isEmpty()) {
+            var font = net.minecraft.client.Minecraft.getInstance().font;
+            int width = font.width(label);
+            float scale = Math.min(0.018F, 0.56F / Math.max(1, width));
+            poseStack.pushPose();
+            poseStack.translate(0, 19.5 / 16.0, -6.12 / 16.0);
+            poseStack.scale(scale, scale, scale);
+            font.drawInBatch(label, -width / 2.0F, -4.0F, 0xffead8b5, false, poseStack.last().pose(), buffer, false, 0, packedLight);
+            poseStack.popPose();
+        }
         poseStack.popPose();
     }
 }
