@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "stowcraft:block/oak_log_chest"
+    }
+  }
+}
