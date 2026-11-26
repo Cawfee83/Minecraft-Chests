@@ -85,7 +85,7 @@ public class LeatherSatchelBlock extends BaseEntityBlock {
         if (!level.isClientSide) {
             if (level.getBlockEntity(pos)
                     instanceof LeatherSatchelBlockEntity satchel) {
-                player.openMenu(satchel);
+                if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) net.minecraftforge.network.NetworkHooks.openScreen(serverPlayer, satchel, pos);
             }
         }
 
