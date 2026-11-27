@@ -13,5 +13,9 @@
   "block.stowcraft.copper_chest": "Copper Chest",
   "block.stowcraft.gold_chest": "Gold Chest",
   "block.stowcraft.redstone_chest": "Redstone Chest",
-  "block.stowcraft.lapis_chest": "Lapis Chest"
+  "block.stowcraft.lapis_chest": "Lapis Chest",
+  "block.stowcraft.deepslate_coffer": "Deepslate Coffer",
+  "block.stowcraft.blackstone_coffer": "Blackstone Coffer",
+  "block.stowcraft.quartz_coffer": "Quartz Coffer",
+  "block.stowcraft.sandstone_coffer": "Sandstone Coffer"
 }

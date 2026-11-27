@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "NCN",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:cut_sandstone"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "item": "stowcraft:sandstone_coffer",
+    "count": 1
+  }
+}

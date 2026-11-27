@@ -6,6 +6,10 @@
     "stowcraft:copper_chest",
     "stowcraft:gold_chest",
     "stowcraft:redstone_chest",
-    "stowcraft:lapis_chest"
+    "stowcraft:lapis_chest",
+    "stowcraft:deepslate_coffer",
+    "stowcraft:blackstone_coffer",
+    "stowcraft:quartz_coffer",
+    "stowcraft:sandstone_coffer"
   ]
 }

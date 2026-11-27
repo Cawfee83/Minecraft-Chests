@@ -13,11 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 public class StoneBrickCofferRenderer
         implements BlockEntityRenderer<StoneBrickCofferBlockEntity> {
 
-    private static final ResourceLocation TEXTURE =
-            new ResourceLocation(
-                    Stowcraft.MODID,
-                    "textures/block/stone_brick_coffer.png");
-
+    
     private final StoneBrickCofferModel model;
 
     public StoneBrickCofferRenderer(
@@ -53,7 +49,7 @@ public class StoneBrickCofferRenderer
 
         model.render(
                 poseStack,
-                buffer.getBuffer(RenderType.entityCutoutNoCull(TEXTURE)),
+                buffer.getBuffer(RenderType.entityCutoutNoCull(new ResourceLocation(Stowcraft.MODID, "textures/block/" + net.minecraftforge.registries.ForgeRegistries.BLOCKS.getKey(satchel.getBlockState().getBlock()).getPath() + ".png"))),
                 packedLight,
                 packedOverlay);
 
