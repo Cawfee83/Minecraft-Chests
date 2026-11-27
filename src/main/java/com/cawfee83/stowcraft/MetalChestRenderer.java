@@ -61,7 +61,7 @@ public class MetalChestRenderer
             poseStack.pushPose();
             poseStack.translate(0, 9.5 / 16.0, -7.62 / 16.0);
             poseStack.scale(scale, scale, scale);
-            font.drawInBatch(label, -width / 2.0F, -4.0F, 0xff49351b, false, poseStack.last().pose(), buffer, false, 0, packedLight);
+            font.drawInBatch(label, -width / 2.0F, -4.0F, 0xffffefd0, true, poseStack.last().pose(), buffer, false, 0, packedLight);
             poseStack.popPose();
         }
         poseStack.popPose();
