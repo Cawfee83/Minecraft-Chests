@@ -102,12 +102,34 @@ public class Stowcraft {
                         }
                     });
 
+    public static final java.util.List<RegistryObject<Block>> STONE_COFFERS = new java.util.ArrayList<>();
+    static {
+        STONE_COFFERS.add(STONE_BRICK_COFFER);
+        for (String material : new String[]{"deepslate","blackstone","quartz","sandstone"}) {
+            String name = material + "_coffer";
+            RegistryObject<Block> block = BLOCKS.register(name, () -> new StoneBrickCofferBlock(
+                BlockBehaviour.Properties.of(Material.STONE).strength(2.0F, 6.0F).requiresCorrectToolForDrops().sound(net.minecraft.world.level.block.SoundType.STONE).noOcclusion()));
+            STONE_COFFERS.add(block);
+            ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)) {
+                @Override public void initializeClient(java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientItemExtensions> consumer) {
+                    consumer.accept(new net.minecraftforge.client.extensions.common.IClientItemExtensions() {
+                        private net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer renderer;
+                        @Override public net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                            if (renderer == null) renderer = new StoneBrickCofferItemRenderer();
+                            return renderer;
+                        }
+                    });
+                }
+            });
+        }
+    }
+
     public static final RegistryObject<BlockEntityType<StoneBrickCofferBlockEntity>>
             STONE_BRICK_COFFER_ENTITY =
             BLOCK_ENTITIES.register("stone_brick_coffer",
                     () -> BlockEntityType.Builder.of(
                             StoneBrickCofferBlockEntity::new,
-                            STONE_BRICK_COFFER.get()
+                            STONE_COFFERS.stream().map(RegistryObject::get).toArray(Block[]::new)
                     ).build(null));
 
     public static final java.util.List<RegistryObject<Block>> LOG_CHESTS = new java.util.ArrayList<>();

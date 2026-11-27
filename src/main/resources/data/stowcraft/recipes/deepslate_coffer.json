@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "NCN",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:deepslate_bricks"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "item": "stowcraft:deepslate_coffer",
+    "count": 1
+  }
+}

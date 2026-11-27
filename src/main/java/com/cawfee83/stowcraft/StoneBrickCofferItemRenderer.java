@@ -15,7 +15,7 @@ public class StoneBrickCofferItemRenderer extends BlockEntityWithoutLevelRendere
 
     @Override
     public void renderByItem(ItemStack stack, ItemTransforms.TransformType transform, PoseStack pose, MultiBufferSource buffer, int light, int overlay) {
-        StoneBrickCofferBlockEntity entity = new StoneBrickCofferBlockEntity(BlockPos.ZERO, Stowcraft.STONE_BRICK_COFFER.get().defaultBlockState());
+        StoneBrickCofferBlockEntity entity = new StoneBrickCofferBlockEntity(BlockPos.ZERO, ((net.minecraft.world.item.BlockItem) stack.getItem()).getBlock().defaultBlockState());
         Minecraft.getInstance().getBlockEntityRenderDispatcher().renderItem(entity, pose, buffer, light, overlay);
     }
 }

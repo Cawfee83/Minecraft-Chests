@@ -9,7 +9,7 @@ public class StoneBrickCofferBlockEntity extends StowcraftContainerBlockEntity {
         super(Stowcraft.STONE_BRICK_COFFER_ENTITY.get(), pos, state);
     }
     @Override protected Component getDefaultName() {
-        return Component.translatable("container.stowcraft.stone_brick_coffer");
+        return Component.translatable(getBlockState().getBlock().getDescriptionId());
     }
     @Override protected float soundVolume() { return 0.2F; }
     @Override protected SoundEvent openingSound() { return Stowcraft.COFFER_OPEN.get(); }
