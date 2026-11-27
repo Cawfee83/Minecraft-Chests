@@ -34,6 +34,11 @@ public final class MineralChestBlockEntity extends StowcraftContainerBlockEntity
     }
 
     @Override
+    protected float soundVolume() {
+        return isLapis() ? 1.0F : super.soundVolume();
+    }
+
+    @Override
     protected SoundEvent openingSound() {
         return isLapis() ? SoundEvents.AMETHYST_BLOCK_CHIME : SoundEvents.ENCHANTMENT_TABLE_USE;
     }
