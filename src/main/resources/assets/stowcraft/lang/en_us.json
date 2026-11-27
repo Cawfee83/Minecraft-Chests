@@ -11,5 +11,7 @@
   "block.stowcraft.dark_oak_log_chest": "Dark Oak Log Chest",
   "block.stowcraft.iron_chest": "Iron Chest",
   "block.stowcraft.copper_chest": "Copper Chest",
-  "block.stowcraft.gold_chest": "Gold Chest"
+  "block.stowcraft.gold_chest": "Gold Chest",
+  "block.stowcraft.redstone_chest": "Redstone Chest",
+  "block.stowcraft.lapis_chest": "Lapis Chest"
 }
