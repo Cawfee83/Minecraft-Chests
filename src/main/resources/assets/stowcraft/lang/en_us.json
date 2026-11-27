@@ -8,5 +8,8 @@
   "block.stowcraft.birch_log_chest": "Birch Log Chest",
   "block.stowcraft.jungle_log_chest": "Jungle Log Chest",
   "block.stowcraft.acacia_log_chest": "Acacia Log Chest",
-  "block.stowcraft.dark_oak_log_chest": "Dark Oak Log Chest"
+  "block.stowcraft.dark_oak_log_chest": "Dark Oak Log Chest",
+  "block.stowcraft.iron_chest": "Iron Chest",
+  "block.stowcraft.copper_chest": "Copper Chest",
+  "block.stowcraft.gold_chest": "Gold Chest"
 }
