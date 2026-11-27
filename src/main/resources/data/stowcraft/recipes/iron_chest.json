@@ -1,1 +1,23 @@
-{"type":"minecraft:crafting_shaped","pattern":["MMM","MCM","MMM"],"key":{"M":{"item":"minecraft:iron_ingot"},"C":{"item":"minecraft:chest"}},"result":{"item":"stowcraft:iron_chest","count":1}}
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "M M",
+    "NCN",
+    "M M"
+  ],
+  "key": {
+    "M": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "result": {
+    "item": "stowcraft:iron_chest",
+    "count": 1
+  }
+}
