@@ -21,7 +21,7 @@ public abstract class StowcraftContainerBlockEntity
             level.playSound(null, pos, openingSound(), net.minecraft.sounds.SoundSource.BLOCKS, soundVolume(), 0.95F + level.random.nextFloat() * 0.1F);
         }
         protected void onClose(net.minecraft.world.level.Level level, BlockPos pos, BlockState state) {
-            level.playSound(null, pos, closingSound(), net.minecraft.sounds.SoundSource.BLOCKS, soundVolume(), 0.95F + level.random.nextFloat() * 0.1F);
+            level.playSound(null, pos, closingSound(), net.minecraft.sounds.SoundSource.BLOCKS, closingSoundVolume(), 0.95F + level.random.nextFloat() * 0.1F);
         }
         protected void openerCountChanged(net.minecraft.world.level.Level level, BlockPos pos, BlockState state, int oldCount, int newCount) {
             level.blockEvent(pos, state.getBlock(), 1, newCount);
@@ -67,6 +67,7 @@ public abstract class StowcraftContainerBlockEntity
     }
 
     protected float soundVolume() { return 0.3F; }
+    protected float closingSoundVolume() { return soundVolume(); }
     protected abstract net.minecraft.sounds.SoundEvent openingSound();
     protected abstract net.minecraft.sounds.SoundEvent closingSound();
 
