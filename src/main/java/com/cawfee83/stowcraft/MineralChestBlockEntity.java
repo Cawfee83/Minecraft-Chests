@@ -35,12 +35,12 @@ public final class MineralChestBlockEntity extends StowcraftContainerBlockEntity
 
     @Override
     protected SoundEvent openingSound() {
-        return SoundEvents.CHEST_OPEN;
+        return isLapis() ? SoundEvents.AMETHYST_BLOCK_CHIME : SoundEvents.ENCHANTMENT_TABLE_USE;
     }
 
     @Override
     protected SoundEvent closingSound() {
-        return SoundEvents.CHEST_CLOSE;
+        return isLapis() ? SoundEvents.AMETHYST_BLOCK_HIT : SoundEvents.RESPAWN_ANCHOR_DEPLETE;
     }
 
     @Override
