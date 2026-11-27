@@ -4,6 +4,8 @@
     "stowcraft:stone_brick_coffer",
     "stowcraft:iron_chest",
     "stowcraft:copper_chest",
-    "stowcraft:gold_chest"
+    "stowcraft:gold_chest",
+    "stowcraft:redstone_chest",
+    "stowcraft:lapis_chest"
   ]
 }
