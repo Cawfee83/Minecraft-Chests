@@ -12,8 +12,8 @@ public class SatchelMenu extends ChestMenu {
     public SatchelMenu(int id, Inventory inv, net.minecraft.world.Container container, BlockPos pos) {
         this(Stowcraft.SATCHEL_MENU.get(), id, inv, container, pos);
     }
-    protected SatchelMenu(MenuType<SatchelMenu> type, int id, Inventory inv, net.minecraft.world.Container container, BlockPos pos) {
-        super(type, id, inv, container, 3);
+    protected SatchelMenu(MenuType<?> type, int id, Inventory inv, net.minecraft.world.Container container, BlockPos pos) {
+        super((MenuType<? extends ChestMenu>)type, id, inv, container, 3);
         this.pos = pos;
     }
 }
