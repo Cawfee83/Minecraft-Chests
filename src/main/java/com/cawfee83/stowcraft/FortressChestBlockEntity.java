@@ -15,8 +15,8 @@ public final class FortressChestBlockEntity extends StowcraftContainerBlockEntit
         return Component.translatable(getBlockState().getBlock().getDescriptionId());
     }
 
-    // Iron trapdoors give the wrought-iron drawbridge a mechanical sound
-    // without introducing a custom sound asset into this first prototype.
-    @Override protected SoundEvent openingSound() { return SoundEvents.IRON_TRAPDOOR_OPEN; }
-    @Override protected SoundEvent closingSound() { return SoundEvents.IRON_TRAPDOOR_CLOSE; }
+    @Override protected float soundPitch(net.minecraft.world.level.Level level) { return 0.6F; }
+    @Override protected float soundVolume() { return 1.0F; }
+    @Override protected SoundEvent openingSound() { return SoundEvents.IRON_DOOR_OPEN; }
+    @Override protected SoundEvent closingSound() { return SoundEvents.IRON_DOOR_CLOSE; }
 }
