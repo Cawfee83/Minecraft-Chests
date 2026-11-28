@@ -12,6 +12,15 @@ public final class DisplayCaseScreen extends SatchelScreen {
     public DisplayCaseScreen(SatchelMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);
     }
+    public net.minecraft.client.renderer.Rect2i ghostArea() {
+        return new net.minecraft.client.renderer.Rect2i(leftPos + PREVIEW_X, topPos + PREVIEW_Y, 18, 18);
+    }
+    public void acceptGhost(ItemStack stack) {
+        if (stack.isEmpty()) return;
+        ItemStack sample = stack.copy();
+        sample.setCount(1);
+        DisplayCaseNetwork.CHANNEL.sendToServer(new DisplayCaseNetwork.GhostItem(menu.containerId, sample));
+    }
     private void send(int action) {
         DisplayCaseNetwork.CHANNEL.sendToServer(new DisplayCaseNetwork.Action(menu.containerId, action));
     }
