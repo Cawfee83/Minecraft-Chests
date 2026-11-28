@@ -24,9 +24,10 @@ public final class DisplayCaseBlockEntity extends StowcraftContainerBlockEntity 
     @Override protected Component getDefaultName() {
         return Component.translatable(getBlockState().getBlock().getDescriptionId());
     }
-    @Override protected SoundEvent openingSound() { return Stowcraft.COFFER_OPEN.get(); }
-    @Override protected SoundEvent closingSound() { return Stowcraft.COFFER_CLOSE.get(); }
-    @Override protected float soundVolume() { return 0.22F; }
+    @Override protected SoundEvent openingSound() { return net.minecraft.sounds.SoundEvents.IRON_TRAPDOOR_OPEN; }
+    @Override protected SoundEvent closingSound() { return net.minecraft.sounds.SoundEvents.IRON_TRAPDOOR_CLOSE; }
+    @Override protected boolean soundsFollowLid() { return true; }
+    @Override protected float soundVolume() { return 0.12F; }
 
     @Override protected AbstractContainerMenu createMenu(int id, Inventory inventory) {
         return new DisplayCaseMenu(id, inventory, this, worldPosition);

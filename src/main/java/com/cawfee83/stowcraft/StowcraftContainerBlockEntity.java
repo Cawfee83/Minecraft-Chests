@@ -18,10 +18,10 @@ public abstract class StowcraftContainerBlockEntity
     private final net.minecraft.world.level.block.entity.ChestLidController lid = new net.minecraft.world.level.block.entity.ChestLidController();
     private final net.minecraft.world.level.block.entity.ContainerOpenersCounter openers = new net.minecraft.world.level.block.entity.ContainerOpenersCounter() {
         protected void onOpen(net.minecraft.world.level.Level level, BlockPos pos, BlockState state) {
-            level.playSound(null, pos, openingSound(), net.minecraft.sounds.SoundSource.BLOCKS, soundVolume(), 0.95F + level.random.nextFloat() * 0.1F);
+            if (!soundsFollowLid()) level.playSound(null, pos, openingSound(), net.minecraft.sounds.SoundSource.BLOCKS, soundVolume(), 0.95F + level.random.nextFloat() * 0.1F);
         }
         protected void onClose(net.minecraft.world.level.Level level, BlockPos pos, BlockState state) {
-            level.playSound(null, pos, closingSound(), net.minecraft.sounds.SoundSource.BLOCKS, closingSoundVolume(), 0.95F + level.random.nextFloat() * 0.1F);
+            if (!soundsFollowLid()) level.playSound(null, pos, closingSound(), net.minecraft.sounds.SoundSource.BLOCKS, closingSoundVolume(), 0.95F + level.random.nextFloat() * 0.1F);
         }
         protected void openerCountChanged(net.minecraft.world.level.Level level, BlockPos pos, BlockState state, int oldCount, int newCount) {
             level.blockEvent(pos, state.getBlock(), 1, newCount);
@@ -54,7 +54,15 @@ public abstract class StowcraftContainerBlockEntity
     }
 
     public static void clientTick(net.minecraft.world.level.Level level, BlockPos pos, BlockState state, StowcraftContainerBlockEntity entity) {
+        float before = entity.lid.getOpenness(1F);
         entity.lid.tickLid();
+        float after = entity.lid.getOpenness(1F);
+        if (entity.soundsFollowLid()) {
+            if (before == 0F && after > 0F)
+                level.playLocalSound(pos.getX()+.5, pos.getY()+.5, pos.getZ()+.5, entity.openingSound(), net.minecraft.sounds.SoundSource.BLOCKS, entity.soundVolume(), 1.35F, false);
+            else if (before > 0F && after == 0F)
+                level.playLocalSound(pos.getX()+.5, pos.getY()+.5, pos.getZ()+.5, entity.closingSound(), net.minecraft.sounds.SoundSource.BLOCKS, entity.closingSoundVolume(), 1.15F, false);
+        }
     }
 
     public float getOpenNess(float partialTick) { return lid.getOpenness(partialTick); }
@@ -66,6 +74,7 @@ public abstract class StowcraftContainerBlockEntity
         super(type, pos, state);
     }
 
+    protected boolean soundsFollowLid() { return false; }
     protected float soundVolume() { return 0.3F; }
     protected float closingSoundVolume() { return soundVolume(); }
     protected abstract net.minecraft.sounds.SoundEvent openingSound();
