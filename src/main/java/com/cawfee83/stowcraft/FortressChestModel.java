@@ -57,7 +57,7 @@ public final class FortressChestModel {
 
     public void setOpenness(float openness) {
         float eased = openness * openness * (3F - 2F * openness);
-        gate.xRot = -(float) (Math.PI / 2D) * eased;
+        gate.xRot = (float) (Math.PI / 2D) * eased;
     }
 
     public void render(PoseStack pose, VertexConsumer consumer, int light, int overlay) {
