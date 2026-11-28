@@ -25,5 +25,9 @@
   "block.stowcraft.diamond_display_case": "Diamond Display Case",
   "block.stowcraft.quartz_display_case": "Quartz Display Case",
   "block.stowcraft.fortress_nether_brick": "Nether Brick Fortress Chest",
-  "container.stowcraft.fortress_nether_brick": "Nether Brick Fortress Chest"
+  "container.stowcraft.fortress_nether_brick": "Nether Brick Fortress Chest",
+  "block.stowcraft.fortress_red_nether_brick": "Red Nether Brick Fortress Chest",
+  "block.stowcraft.fortress_polished_blackstone_brick": "Polished Blackstone Brick Fortress Chest",
+  "block.stowcraft.fortress_gilded_blackstone": "Gilded Blackstone Fortress Chest",
+  "block.stowcraft.fortress_basalt": "Basalt Fortress Chest"
 }

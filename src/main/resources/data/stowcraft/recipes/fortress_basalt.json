@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "ICI",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:basalt"
+    },
+    "I": {
+      "item": "minecraft:iron_bars"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "item": "stowcraft:fortress_basalt",
+    "count": 1
+  }
+}

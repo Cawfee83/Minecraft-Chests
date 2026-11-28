@@ -17,6 +17,10 @@
     "stowcraft:blackstone_display_case",
     "stowcraft:diamond_display_case",
     "stowcraft:quartz_display_case",
-    "stowcraft:fortress_nether_brick"
+    "stowcraft:fortress_nether_brick",
+    "stowcraft:fortress_red_nether_brick",
+    "stowcraft:fortress_polished_blackstone_brick",
+    "stowcraft:fortress_gilded_blackstone",
+    "stowcraft:fortress_basalt"
   ]
 }

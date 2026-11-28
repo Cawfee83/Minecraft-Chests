@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "ICI",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:red_nether_bricks"
+    },
+    "I": {
+      "item": "minecraft:iron_bars"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "item": "stowcraft:fortress_red_nether_brick",
+    "count": 1
+  }
+}

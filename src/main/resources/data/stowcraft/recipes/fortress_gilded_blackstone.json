@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "ICI",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:gilded_blackstone"
+    },
+    "I": {
+      "item": "minecraft:iron_bars"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "item": "stowcraft:fortress_gilded_blackstone",
+    "count": 1
+  }
+}

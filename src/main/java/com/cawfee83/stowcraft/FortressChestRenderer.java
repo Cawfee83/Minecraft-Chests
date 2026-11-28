@@ -11,8 +11,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 
 public final class FortressChestRenderer implements BlockEntityRenderer<FortressChestBlockEntity> {
-    private static final ResourceLocation TEXTURE =
-            new ResourceLocation(Stowcraft.MODID, "textures/block/fortress_nether_brick.png");
     private final FortressChestModel model;
 
     public FortressChestRenderer(BlockEntityRendererProvider.Context context) {
@@ -27,7 +25,7 @@ public final class FortressChestRenderer implements BlockEntityRenderer<Fortress
         pose.mulPose(Vector3f.YP.rotationDegrees(180F - facing.toYRot()));
         pose.scale(-1F, -1F, 1F);
         model.setOpenness(chest.getOpenNess(partialTick));
-        model.render(pose, buffer.getBuffer(RenderType.entityCutoutNoCull(TEXTURE)), light, overlay);
+        model.render(pose, buffer.getBuffer(RenderType.entityCutoutNoCull(new ResourceLocation(Stowcraft.MODID, "textures/block/" + net.minecraftforge.registries.ForgeRegistries.BLOCKS.getKey(chest.getBlockState().getBlock()).getPath() + ".png"))), light, overlay);
 
         // Stationary inset nameplate: y 10.5..12.5, on the -Z front face.
         String label = chest.getLabel();

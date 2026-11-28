@@ -12,7 +12,7 @@ public final class FortressChestBlockEntity extends StowcraftContainerBlockEntit
     }
 
     @Override protected Component getDefaultName() {
-        return Component.translatable("block.stowcraft.fortress_nether_brick");
+        return Component.translatable(getBlockState().getBlock().getDescriptionId());
     }
 
     // Iron trapdoors give the wrought-iron drawbridge a mechanical sound
