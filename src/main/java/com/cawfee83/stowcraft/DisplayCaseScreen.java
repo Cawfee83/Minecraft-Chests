@@ -9,7 +9,7 @@ import net.minecraft.world.item.ItemStack;
 /** Existing 27-slot screen, with a non-inventory sample preview and controls above it. */
 public final class DisplayCaseScreen extends SatchelScreen {
     private static final int PREVIEW_X = 80, PREVIEW_Y = -27;
-    public DisplayCaseScreen(DisplayCaseMenu menu, Inventory inv, Component title) {
+    public DisplayCaseScreen(SatchelMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);
     }
     private void send(int action) {
