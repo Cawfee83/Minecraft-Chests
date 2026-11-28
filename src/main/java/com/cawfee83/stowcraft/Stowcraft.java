@@ -240,6 +240,103 @@ public class Stowcraft {
                     DisplayCaseBlockEntity::new,
                     DISPLAY_CASES.stream().map(RegistryObject::get).toArray(Block[]::new)).build(null));
 
+
+    public static final RegistryObject<Block> FORTRESS_NETHER_BRICK =
+            BLOCKS.register("fortress_nether_brick", () -> new FortressChestBlock(
+                    BlockBehaviour.Properties.of(Material.STONE)
+                            .strength(3.5F, 6.0F).requiresCorrectToolForDrops()
+                            .sound(net.minecraft.world.level.block.SoundType.NETHER_BRICKS)
+                            .noOcclusion()));
+
+    public static final RegistryObject<Item> FORTRESS_NETHER_BRICK_ITEM =
+            ITEMS.register("fortress_nether_brick", () -> new BlockItem(
+                    FORTRESS_NETHER_BRICK.get(),
+                    new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)) {
+                @Override public void initializeClient(
+                        java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientItemExtensions> consumer) {
+                    consumer.accept(new net.minecraftforge.client.extensions.common.IClientItemExtensions() {
+                        private net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer renderer;
+                        @Override public net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                            if (renderer == null) renderer = new FortressChestItemRenderer();
+                            return renderer;
+                        }
+                    });
+                }
+            });
+
+    public static final RegistryObject<Block> FORTRESS_RED_NETHER_BRICK =
+            BLOCKS.register("fortress_red_nether_brick", () -> new FortressChestBlock(
+                    BlockBehaviour.Properties.of(Material.STONE)
+                            .strength(3.5F, 6.0F).requiresCorrectToolForDrops()
+                            .sound(net.minecraft.world.level.block.SoundType.STONE)
+                            .noOcclusion()));
+
+    public static final RegistryObject<Item> FORTRESS_RED_NETHER_BRICK_ITEM =
+            ITEMS.register("fortress_red_nether_brick", () -> new BlockItem(
+                    FORTRESS_RED_NETHER_BRICK.get(),
+                    new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)) {
+                @Override public void initializeClient(
+                        java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientItemExtensions> consumer) {
+                    consumer.accept(new net.minecraftforge.client.extensions.common.IClientItemExtensions() {
+                        private net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer renderer;
+                        @Override public net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                            if (renderer == null) renderer = new FortressChestItemRenderer();
+                            return renderer;
+                        }
+                    });
+                }
+            });
+
+    public static final RegistryObject<Block> FORTRESS_POLISHED_BLACKSTONE_BRICK =
+            BLOCKS.register("fortress_polished_blackstone_brick", () -> new FortressChestBlock(
+                    BlockBehaviour.Properties.of(Material.STONE)
+                            .strength(3.5F, 6.0F).requiresCorrectToolForDrops()
+                            .sound(net.minecraft.world.level.block.SoundType.STONE)
+                            .noOcclusion()));
+
+    public static final RegistryObject<Item> FORTRESS_POLISHED_BLACKSTONE_BRICK_ITEM =
+            ITEMS.register("fortress_polished_blackstone_brick", () -> new BlockItem(
+                    FORTRESS_POLISHED_BLACKSTONE_BRICK.get(),
+                    new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)) {
+                @Override public void initializeClient(
+                        java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientItemExtensions> consumer) {
+                    consumer.accept(new net.minecraftforge.client.extensions.common.IClientItemExtensions() {
+                        private net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer renderer;
+                        @Override public net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                            if (renderer == null) renderer = new FortressChestItemRenderer();
+                            return renderer;
+                        }
+                    });
+                }
+            });
+
+    public static final RegistryObject<Block> FORTRESS_GILDED_BLACKSTONE =
+            BLOCKS.register("fortress_gilded_blackstone", () -> new FortressChestBlock(
+                    BlockBehaviour.Properties.of(Material.STONE)
+                            .strength(3.5F, 6.0F).requiresCorrectToolForDrops()
+                            .sound(net.minecraft.world.level.block.SoundType.STONE)
+                            .noOcclusion()));
+
+    public static final RegistryObject<Item> FORTRESS_GILDED_BLACKSTONE_ITEM =
+            ITEMS.register("fortress_gilded_blackstone", () -> new BlockItem(
+                    FORTRESS_GILDED_BLACKSTONE.get(),
+                    new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)) {
+                @Override public void initializeClient(
+                        java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientItemExtensions> consumer) {
+                    consumer.accept(new net.minecraftforge.client.extensions.common.IClientItemExtensions() {
+                        private net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer renderer;
+                        @Override public net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                            if (renderer == null) renderer = new FortressChestItemRenderer();
+                            return renderer;
+                        }
+                    });
+                }
+            });
+
+    public static final RegistryObject<BlockEntityType<FortressChestBlockEntity>> FORTRESS_CHEST_ENTITY =
+            BLOCK_ENTITIES.register("fortress_chest", () -> BlockEntityType.Builder.of(
+                    FortressChestBlockEntity::new, FORTRESS_NETHER_BRICK.get(), FORTRESS_RED_NETHER_BRICK.get(), FORTRESS_POLISHED_BLACKSTONE_BRICK.get(), FORTRESS_GILDED_BLACKSTONE.get()).build(null));
+
     public static final DeferredRegister<net.minecraft.world.inventory.MenuType<?>> MENUS = DeferredRegister.create(ForgeRegistries.MENU_TYPES, MODID);
     public static final RegistryObject<net.minecraft.world.inventory.MenuType<SatchelMenu>> SATCHEL_MENU = MENUS.register("satchel", () -> net.minecraftforge.common.extensions.IForgeMenuType.create(SatchelMenu::new));
 

@@ -32,6 +32,7 @@ public class ClientModEvents {
         event.registerBlockEntityRenderer(Stowcraft.METAL_CHEST_ENTITY.get(), MetalChestRenderer::new);
         event.registerBlockEntityRenderer(Stowcraft.MINERAL_CHEST_ENTITY.get(), MineralChestRenderer::new);
         event.registerBlockEntityRenderer(Stowcraft.DISPLAY_CASE_ENTITY.get(), DisplayCaseRenderer::new);
+        event.registerBlockEntityRenderer(Stowcraft.FORTRESS_CHEST_ENTITY.get(), FortressChestRenderer::new);
     }
 
     @SubscribeEvent
@@ -46,5 +47,6 @@ public class ClientModEvents {
         event.registerLayerDefinition(MetalChestModel.LAYER_LOCATION, MetalChestModel::createBodyLayer);
         event.registerLayerDefinition(MineralChestModel.LAYER_LOCATION, MineralChestModel::createBodyLayer);
         event.registerLayerDefinition(DisplayCaseModel.LAYER_LOCATION, DisplayCaseModel::createBodyLayer);
+        event.registerLayerDefinition(FortressChestModel.LAYER_LOCATION, FortressChestModel::createBodyLayer);
     }
 }
