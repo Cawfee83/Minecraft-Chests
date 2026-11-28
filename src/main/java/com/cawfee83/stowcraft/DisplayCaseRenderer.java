@@ -33,7 +33,8 @@ public final class DisplayCaseRenderer implements BlockEntityRenderer<DisplayCas
         if (!stack.isEmpty()) {
             pose.pushPose();
             // Model uses top-origin Y-down units; item space is in Minecraft world coordinates.
-            pose.translate(0, .5F, 0);
+            pose.translate(0, 1F, 0);
+            pose.scale(-1F,-1F,1F);
             pose.mulPose(Vector3f.YP.rotationDegrees(entity.renderAngle(partialTick)));
             pose.scale(.65F,.65F,.65F);
             Minecraft.getInstance().getItemRenderer().renderStatic(stack, ItemTransforms.TransformType.FIXED,
