@@ -52,6 +52,9 @@ public final class DisplayCaseBlockEntity extends StowcraftContainerBlockEntity 
     }
     public void clearDisplay() {
         display = ItemStack.EMPTY;
+        angle = 0F;
+        rotationAnchorAngle = 0F;
+        rotationAnchor = level == null ? 0L : level.getGameTime();
         sync();
     }
     private float currentAngle(double time) {
@@ -66,6 +69,7 @@ public final class DisplayCaseBlockEntity extends StowcraftContainerBlockEntity 
         if (level == null || rotating == newValue) return;
         // Keep the manually selected resting orientation independent of spin phase.
         rotating = newValue;
+        if (!newValue) angle = 0F;
         rotationAnchor = level.getGameTime();
         rotationAnchorAngle = angle;
         sync();
@@ -76,6 +80,14 @@ public final class DisplayCaseBlockEntity extends StowcraftContainerBlockEntity 
         angle = (angle + degrees + 360.0F) % 360.0F;
         rotationAnchor = level.getGameTime();
         rotationAnchorAngle = rotating ? (phase + degrees + 360.0F) % 360.0F : angle;
+        sync();
+    }
+
+    public void resetOrientation() {
+        angle = 0F;
+        rotating = false;
+        rotationAnchorAngle = 0F;
+        rotationAnchor = level == null ? 0L : level.getGameTime();
         sync();
     }
 

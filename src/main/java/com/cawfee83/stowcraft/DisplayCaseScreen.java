@@ -17,7 +17,9 @@ public final class DisplayCaseScreen extends SatchelScreen {
     }
     @Override protected void init() {
         super.init();
-        addRenderableWidget(new Button(leftPos + 16, topPos - 30, 30, 20,
+        addRenderableWidget(new Button(leftPos, topPos - 30, 24, 20,
+                Component.literal("D"), b -> send(5)));
+        addRenderableWidget(new Button(leftPos + 30, topPos - 30, 30, 20,
                 Component.literal("-15"), b -> send(3)));
         addRenderableWidget(new Button(leftPos + 116, topPos - 30, 30, 20,
                 Component.literal("+15"), b -> send(4)));

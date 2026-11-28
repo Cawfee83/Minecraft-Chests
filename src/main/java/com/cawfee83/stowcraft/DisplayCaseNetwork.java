@@ -36,6 +36,7 @@ public final class DisplayCaseNetwork {
                 case 2 -> entity.setRotating(!entity.isRotating());
                 case 3 -> entity.rotateBy(-15);
                 case 4 -> entity.rotateBy(15);
+                case 5 -> entity.resetOrientation();
                 default -> {}
             }
         });
