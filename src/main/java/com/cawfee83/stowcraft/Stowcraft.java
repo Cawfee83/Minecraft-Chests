@@ -211,8 +211,39 @@ public class Stowcraft {
                     MineralChestBlockEntity::new,
                     MINERAL_CHESTS.stream().map(RegistryObject::get).toArray(Block[]::new)).build(null));
 
+
+    public static final java.util.List<RegistryObject<Block>> DISPLAY_CASES = new java.util.ArrayList<>();
+    static {
+        for (String material : new String[]{"iron","gold","copper","blackstone","diamond","quartz"}) {
+            String name = material + "_display_case";
+            RegistryObject<Block> block = BLOCKS.register(name, () -> new DisplayCaseBlock(
+                    BlockBehaviour.Properties.of(Material.METAL).strength(4.5F,6.0F)
+                            .requiresCorrectToolForDrops().sound(net.minecraft.world.level.block.SoundType.GLASS)
+                            .noOcclusion()));
+            DISPLAY_CASES.add(block);
+            ITEMS.register(name, () -> new BlockItem(block.get(),
+                    new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)) {
+                @Override public void initializeClient(java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientItemExtensions> consumer) {
+                    consumer.accept(new net.minecraftforge.client.extensions.common.IClientItemExtensions() {
+                        private net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer renderer;
+                        @Override public net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                            if (renderer == null) renderer = new DisplayCaseItemRenderer();
+                            return renderer;
+                        }
+                    });
+                }
+            });
+        }
+    }
+    public static final RegistryObject<BlockEntityType<DisplayCaseBlockEntity>> DISPLAY_CASE_ENTITY =
+            BLOCK_ENTITIES.register("display_case", () -> BlockEntityType.Builder.of(
+                    DisplayCaseBlockEntity::new,
+                    DISPLAY_CASES.stream().map(RegistryObject::get).toArray(Block[]::new)).build(null));
+
     public static final DeferredRegister<net.minecraft.world.inventory.MenuType<?>> MENUS = DeferredRegister.create(ForgeRegistries.MENU_TYPES, MODID);
     public static final RegistryObject<net.minecraft.world.inventory.MenuType<SatchelMenu>> SATCHEL_MENU = MENUS.register("satchel", () -> net.minecraftforge.common.extensions.IForgeMenuType.create(SatchelMenu::new));
+
+    public static final RegistryObject<net.minecraft.world.inventory.MenuType<DisplayCaseMenu>> DISPLAY_CASE_MENU = MENUS.register("display_case", () -> net.minecraftforge.common.extensions.IForgeMenuType.create(DisplayCaseMenu::new));
 
     public Stowcraft(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
@@ -223,5 +254,6 @@ public class Stowcraft {
         SOUNDS.register(modEventBus);
         MENUS.register(modEventBus);
         SatchelNetwork.init();
+        DisplayCaseNetwork.init();
     }
 }

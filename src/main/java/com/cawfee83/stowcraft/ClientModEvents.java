@@ -14,7 +14,10 @@ public class ClientModEvents {
 
     @SubscribeEvent
     public static void setup(net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent event) {
-        event.enqueueWork(() -> net.minecraft.client.gui.screens.MenuScreens.register(Stowcraft.SATCHEL_MENU.get(), SatchelScreen::new));
+        event.enqueueWork(() -> {
+            net.minecraft.client.gui.screens.MenuScreens.register(Stowcraft.SATCHEL_MENU.get(), SatchelScreen::new);
+            net.minecraft.client.gui.screens.MenuScreens.register(Stowcraft.DISPLAY_CASE_MENU.get(), DisplayCaseScreen::new);
+        });
     }
 
     @SubscribeEvent
@@ -28,6 +31,7 @@ public class ClientModEvents {
         event.registerBlockEntityRenderer(Stowcraft.LOG_CHEST_ENTITY.get(), LogChestRenderer::new);
         event.registerBlockEntityRenderer(Stowcraft.METAL_CHEST_ENTITY.get(), MetalChestRenderer::new);
         event.registerBlockEntityRenderer(Stowcraft.MINERAL_CHEST_ENTITY.get(), MineralChestRenderer::new);
+        event.registerBlockEntityRenderer(Stowcraft.DISPLAY_CASE_ENTITY.get(), DisplayCaseRenderer::new);
     }
 
     @SubscribeEvent
@@ -41,5 +45,6 @@ public class ClientModEvents {
         event.registerLayerDefinition(LogChestModel.LAYER_LOCATION, LogChestModel::createBodyLayer);
         event.registerLayerDefinition(MetalChestModel.LAYER_LOCATION, MetalChestModel::createBodyLayer);
         event.registerLayerDefinition(MineralChestModel.LAYER_LOCATION, MineralChestModel::createBodyLayer);
+        event.registerLayerDefinition(DisplayCaseModel.LAYER_LOCATION, DisplayCaseModel::createBodyLayer);
     }
 }

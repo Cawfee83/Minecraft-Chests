@@ -10,6 +10,12 @@
     "stowcraft:deepslate_coffer",
     "stowcraft:blackstone_coffer",
     "stowcraft:quartz_coffer",
-    "stowcraft:sandstone_coffer"
+    "stowcraft:sandstone_coffer",
+    "stowcraft:iron_display_case",
+    "stowcraft:gold_display_case",
+    "stowcraft:copper_display_case",
+    "stowcraft:blackstone_display_case",
+    "stowcraft:diamond_display_case",
+    "stowcraft:quartz_display_case"
   ]
 }

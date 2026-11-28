@@ -17,5 +17,11 @@
   "block.stowcraft.deepslate_coffer": "Deepslate Coffer",
   "block.stowcraft.blackstone_coffer": "Blackstone Coffer",
   "block.stowcraft.quartz_coffer": "Quartz Coffer",
-  "block.stowcraft.sandstone_coffer": "Sandstone Coffer"
+  "block.stowcraft.sandstone_coffer": "Sandstone Coffer",
+  "block.stowcraft.iron_display_case": "Iron Display Case",
+  "block.stowcraft.gold_display_case": "Gold Display Case",
+  "block.stowcraft.copper_display_case": "Copper Display Case",
+  "block.stowcraft.blackstone_display_case": "Blackstone Display Case",
+  "block.stowcraft.diamond_display_case": "Diamond Display Case",
+  "block.stowcraft.quartz_display_case": "Quartz Display Case"
 }
