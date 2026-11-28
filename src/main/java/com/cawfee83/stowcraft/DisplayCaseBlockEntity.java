@@ -64,7 +64,7 @@ public final class DisplayCaseBlockEntity extends StowcraftContainerBlockEntity 
     }
     public void setRotating(boolean newValue) {
         if (level == null || rotating == newValue) return;
-        angle = currentAngle(level.getGameTime());
+        // Keep the manually selected resting orientation independent of spin phase.
         rotating = newValue;
         rotationAnchor = level.getGameTime();
         rotationAnchorAngle = angle;
@@ -72,9 +72,10 @@ public final class DisplayCaseBlockEntity extends StowcraftContainerBlockEntity 
     }
     public void rotateBy(int degrees) {
         if (level == null) return;
-        angle = (currentAngle(level.getGameTime()) + degrees + 360.0F) % 360.0F;
+        float phase = currentAngle(level.getGameTime());
+        angle = (angle + degrees + 360.0F) % 360.0F;
         rotationAnchor = level.getGameTime();
-        rotationAnchorAngle = angle;
+        rotationAnchorAngle = rotating ? (phase + degrees + 360.0F) % 360.0F : angle;
         sync();
     }
 
@@ -83,13 +84,15 @@ public final class DisplayCaseBlockEntity extends StowcraftContainerBlockEntity 
         if (!display.isEmpty()) display.setCount(1);
         rotating = tag.getBoolean("DisplayRotating");
         angle = ((tag.getFloat("DisplayAngle") % 360.0F) + 360.0F) % 360.0F;
-        rotationAnchorAngle = angle;
-        rotationAnchor = level == null ? 0L : level.getGameTime();
+        rotationAnchorAngle = tag.contains("DisplaySpinAngle") ? tag.getFloat("DisplaySpinAngle") : angle;
+        rotationAnchor = tag.contains("DisplaySpinAnchor") ? tag.getLong("DisplaySpinAnchor") : (level == null ? 0L : level.getGameTime());
     }
     private void writeDisplay(CompoundTag tag) {
-        // A stored baseline, not an advancing wall-clock angle: reloading resumes smoothly.
+        // Persist the resting orientation separately from the running spin phase.
         tag.putBoolean("DisplayRotating", rotating);
-        tag.putFloat("DisplayAngle", level == null ? angle : currentAngle(level.getGameTime()));
+        tag.putFloat("DisplayAngle", angle);
+        tag.putFloat("DisplaySpinAngle", rotationAnchorAngle);
+        tag.putLong("DisplaySpinAnchor", rotationAnchor);
         if (!display.isEmpty()) tag.put("DisplayItem", display.save(new CompoundTag()));
     }
     @Override public void load(CompoundTag tag) {
