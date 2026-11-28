@@ -44,9 +44,32 @@ public final class DisplayCaseScreen extends SatchelScreen {
             }
         }
     }
+    private int ghostMouseButton = -1;
+
+    @Override protected boolean hasClickedOutside(double mouseX, double mouseY, int left, int top, int button) {
+        // The controls above the vanilla chest are part of this screen, not the drop area.
+        if (mouseX >= left && mouseX < left + imageWidth &&
+                mouseY >= top - 32 && mouseY < top) return false;
+        return super.hasClickedOutside(mouseX, mouseY, left, top, button);
+    }
+
+    @Override public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        if (button == ghostMouseButton) {
+            ghostMouseButton = -1;
+            return true;
+        }
+        return super.mouseReleased(mouseX, mouseY, button);
+    }
+
+    @Override public boolean mouseDragged(double mouseX, double mouseY, int button, double dx, double dy) {
+        if (button == ghostMouseButton) return true;
+        return super.mouseDragged(mouseX, mouseY, button, dx, dy);
+    }
+
     @Override public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (mouseX >= leftPos + PREVIEW_X && mouseX < leftPos + PREVIEW_X + 18 &&
                 mouseY >= topPos + PREVIEW_Y && mouseY < topPos + PREVIEW_Y + 18) {
+            ghostMouseButton = button;
             if (button == 1) send(1);
             else if (button == 0) send(0);
             return true;
