@@ -12,6 +12,6 @@ public final class DisplayCaseMenu extends SatchelMenu {
         this(id, inv, new SimpleContainer(27), buf.readBlockPos());
     }
     public DisplayCaseMenu(int id, Inventory inv, Container container, BlockPos pos) {
-        super((net.minecraft.world.inventory.MenuType<SatchelMenu>)(net.minecraft.world.inventory.MenuType<?>)Stowcraft.DISPLAY_CASE_MENU.get(), id, inv, container, pos);
+        super(Stowcraft.DISPLAY_CASE_MENU.get(), id, inv, container, pos);
     }
 }
