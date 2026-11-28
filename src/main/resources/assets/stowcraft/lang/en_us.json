@@ -23,5 +23,7 @@
   "block.stowcraft.copper_display_case": "Copper Display Case",
   "block.stowcraft.blackstone_display_case": "Blackstone Display Case",
   "block.stowcraft.diamond_display_case": "Diamond Display Case",
-  "block.stowcraft.quartz_display_case": "Quartz Display Case"
+  "block.stowcraft.quartz_display_case": "Quartz Display Case",
+  "block.stowcraft.fortress_nether_brick": "Nether Brick Fortress Chest",
+  "container.stowcraft.fortress_nether_brick": "Nether Brick Fortress Chest"
 }
